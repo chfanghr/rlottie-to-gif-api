@@ -2,6 +2,8 @@
 
 #include "GifBuilder.h"
 
+#include <cmath>
+
 oatpp::Object<RenderResult> doRender(const oatpp::Object<RenderRequest> &renderRequest) {
   static unsigned int cacheCounter = 0; // rlottie uses caches for internal optimizations
 
