@@ -65,6 +65,10 @@ Currently, you can't build a docker image because there is an unresolved linkage
 #14 41.34 make: *** [all] Error 2
 ```
 
-I'll try to address it - if I have some spare time.
+I'll try to address it later - if I have some spare time.
 
 It works fine on my MacBook Pro for now, so let's assume that it will work on all the macOS machines.
+
+## License
+
+This project is licensed under [MIT](LICENSE) license.
