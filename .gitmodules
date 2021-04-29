@@ -1,0 +1,6 @@
+[submodule "libs/rlottie"]
+	path = libs/rlottie
+	url = https://github.com/Samsung/rlottie.git
+[submodule "libs/gif-h"]
+	path = libs/gif-h
+	url = https://github.com/chfanghr/gif-h.git
