@@ -31,7 +31,7 @@ ADD_LIBRARY(service-lib
             src/utility/GifBuilder.h
             src/utility/GifBuilder.cc)
 
-ADD_EXECUTABLE(service src/App.cc libs/gif-h/gif.cc libs/gif-h/helper.cc)
+ADD_EXECUTABLE(service src/App.cc)
 
 TARGET_INCLUDE_DIRECTORIES(service-lib PRIVATE libs/rlottie/inc)
 TARGET_INCLUDE_DIRECTORIES(service-lib PRIVATE libs/gif-h)
