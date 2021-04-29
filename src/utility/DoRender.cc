@@ -1,4 +1,4 @@
-#include "render.h"
+#include "DoRender.h"
 
 #include "GifBuilder.h"
 

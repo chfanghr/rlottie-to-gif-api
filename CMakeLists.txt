@@ -26,8 +26,8 @@ ADD_LIBRARY(service-lib
             src/dto/RenderResult.h
             src/dto/RenderError.h
             src/AppComponent.h
-            src/utility/render.h
-            src/utility/render.cc
+            src/utility/DoRender.h
+            src/utility/DoRender.cc
             src/utility/GifBuilder.h
             src/utility/GifBuilder.cc)
 
