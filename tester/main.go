@@ -21,6 +21,7 @@ type RenderRequest struct {
 	Width       uint32  `json:"width"`
 	Height      uint32  `json:"height"`
 	Fps         float64 `json:"fps"`
+	IsTgs       bool    `json:"is_tgs"`
 	RlottieData string  `json:"rlottie_data"`
 }
 
@@ -56,6 +57,7 @@ func main() {
 	renderRequest := RenderRequest{
 		Width:       uint32(*outputWidth),
 		Height:      uint32(*outputHeight),
+		IsTgs:       !json.Valid(rlottieData),
 		Fps:         *outputFps,
 		RlottieData: string(rlottieData),
 	}
