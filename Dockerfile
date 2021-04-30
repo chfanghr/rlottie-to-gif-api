@@ -12,7 +12,7 @@ RUN cmake --build .
 
 FROM ubuntu
 
-COPY --from=builder /home/conan/source/build/bin/service /usr/local/bin/service
+COPY --from=builder /home/conan/build/service /usr/local/bin/service
 
 EXPOSE 8000
 
