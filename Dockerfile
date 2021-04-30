@@ -2,8 +2,6 @@ FROM conanio/clang10 as builder
 
 ADD . ./
 
-RUN git submodule update --init
-
 RUN mkdir build
 
 WORKDIR build
