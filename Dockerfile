@@ -1,12 +1,12 @@
 FROM conanio/clang10 as builder
 
-ADD . /source
-
-WORKDIR /source
+ADD . ./
 
 RUN git submodule update --init
 
-WORKDIR /source/build
+RUN mkdir build
+
+WORKDIR build
 
 RUN conan install ../ --build=missing
 
@@ -16,7 +16,7 @@ RUN cmake --build .
 
 FROM ubuntu
 
-COPY --from=builder /source/build/bin/service /usr/local/bin/service
+COPY --from=builder build/bin/service /usr/local/bin/service
 
 EXPOSE 8000
 
