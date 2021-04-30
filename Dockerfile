@@ -16,4 +16,8 @@ COPY --from=builder /home/conan/build/service /usr/local/bin/service
 
 EXPOSE 8000
 
+RUN apt update && apt upgrade
+
+RUN apt install libatomic1
+
 ENTRYPOINT service
