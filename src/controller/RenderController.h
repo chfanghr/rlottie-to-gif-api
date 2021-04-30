@@ -14,7 +14,7 @@ class RenderController : public oatpp::web::server::api::ApiController {
       : oatpp::web::server::api::ApiController(objectMapper) {}
 
  public:
-  ENDPOINT("POST", "/doRender", render, BODY_DTO(Object < RenderRequest > , renderRequest));
+  ENDPOINT("POST", "/", render, BODY_DTO(Object < RenderRequest > , renderRequest));
 
 };
 
