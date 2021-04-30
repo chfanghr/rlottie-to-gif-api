@@ -10,8 +10,7 @@ oatpp::Object<RenderResult> doRender(const oatpp::Object<RenderRequest> &renderR
   auto errorObject = RenderError::createShared();
   auto resultObject = RenderResult::createShared();
 
-  auto rlottieJsonData = std::string(renderRequest->rlottieData->begin(), renderRequest->rlottieData->end());
-  auto player = rlottie::Animation::loadFromData(rlottieJsonData, std::to_string(cacheCounter++));
+  auto player = rlottie::Animation::loadFromData(renderRequest->rlottieData->std_str(), std::to_string(cacheCounter++));
 
   if (!player) {
     errorObject->reason = "failed to create rlottie animation";

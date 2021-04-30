@@ -11,7 +11,7 @@ class RenderRequest : public oatpp::DTO {
   DTO_FIELD(UInt32, width) = 200u;
   DTO_FIELD(UInt32, height) = 200u;
   DTO_FIELD(Float64 , fps) = 0.0;
-  DTO_FIELD(Vector < UInt8 >, rlottieData, "rlottie_data");
+  DTO_FIELD(String, rlottieData, "rlottie_data");
 };
 
 #include OATPP_CODEGEN_END(DTO)
