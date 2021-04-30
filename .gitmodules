@@ -7,3 +7,6 @@
 [submodule "libs/oatpp"]
 	path = libs/oatpp
 	url = https://github.com/oatpp/oatpp.git
+[submodule "libs/gzip-hpp"]
+	path = libs/gzip-hpp
+	url = https://github.com/mapbox/gzip-hpp.git

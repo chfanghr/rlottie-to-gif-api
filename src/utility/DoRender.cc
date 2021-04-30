@@ -4,13 +4,20 @@
 
 #include <cmath>
 
+#include <gzip/utils.hpp>
+#include <gzip/decompress.hpp>
+
 oatpp::Object<RenderResult> doRender(const oatpp::Object<RenderRequest> &renderRequest) {
+  std::string rlottieData = renderRequest->isTgs ?
+                            gzip::decompress(renderRequest->rlottieData->c_str(), renderRequest->rlottieData->getSize())
+                                                 : renderRequest->rlottieData->std_str();
+
   static unsigned int cacheCounter = 0; // rlottie uses caches for internal optimizations
 
   auto errorObject = RenderError::createShared();
   auto resultObject = RenderResult::createShared();
 
-  auto player = rlottie::Animation::loadFromData(renderRequest->rlottieData->std_str(), std::to_string(cacheCounter++));
+  auto player = rlottie::Animation::loadFromData(rlottieData, std::to_string(cacheCounter++));
 
   if (!player) {
     errorObject->reason = "failed to create rlottie animation";

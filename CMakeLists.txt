@@ -4,6 +4,7 @@ PROJECT(rlottie-to-gif-api)
 SET(CMAKE_CXX_STANDARD 17)
 SET(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+ADD_SUBDIRECTORY(libs/gzip-hpp)
 ADD_SUBDIRECTORY(libs/oatpp)
 ADD_SUBDIRECTORY(libs/rlottie)
 
@@ -29,6 +30,7 @@ ADD_EXECUTABLE(service src/App.cc)
 
 TARGET_INCLUDE_DIRECTORIES(service-lib PRIVATE libs/rlottie/inc)
 TARGET_INCLUDE_DIRECTORIES(service-lib PRIVATE libs/gif-h)
+TARGET_INCLUDE_DIRECTORIES(service-lib PRIVATE libs/gzip-hpp/include)
 TARGET_INCLUDE_DIRECTORIES(service-lib PRIVATE src/)
 
 TARGET_INCLUDE_DIRECTORIES(service PRIVATE src/)
