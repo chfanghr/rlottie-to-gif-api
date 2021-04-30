@@ -4,3 +4,6 @@
 [submodule "libs/gif-h"]
 	path = libs/gif-h
 	url = https://github.com/chfanghr/gif-h.git
+[submodule "libs/oatpp"]
+	path = libs/oatpp
+	url = https://github.com/oatpp/oatpp.git

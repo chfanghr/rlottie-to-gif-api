@@ -4,13 +4,7 @@ PROJECT(rlottie-to-gif-api)
 SET(CMAKE_CXX_STANDARD 17)
 SET(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-IF (EXISTS ${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
-  INCLUDE(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
-  CONAN_BASIC_SETUP()
-ELSE ()
-  MESSAGE(FATAL_ERROR "The file conanbuildinfo.cmake doesn't exist, you have to run conan install first")
-ENDIF ()
-
+ADD_SUBDIRECTORY(libs/oatpp)
 ADD_SUBDIRECTORY(libs/rlottie)
 
 ADD_LIBRARY(gif
@@ -39,12 +33,9 @@ TARGET_INCLUDE_DIRECTORIES(service-lib PRIVATE src/)
 
 TARGET_INCLUDE_DIRECTORIES(service PRIVATE src/)
 
-TARGET_LINK_LIBRARIES(service-lib PRIVATE ${CONAN_LIBS_FMT})
-TARGET_LINK_LIBRARIES(service-lib PRIVATE ${CONAN_LIBS_OATPP})
+TARGET_LINK_LIBRARIES(service-lib PRIVATE oatpp)
 TARGET_LINK_LIBRARIES(service-lib PRIVATE rlottie)
 TARGET_LINK_LIBRARIES(service-lib PRIVATE gif)
 
 TARGET_LINK_LIBRARIES(service PRIVATE service-lib)
-TARGET_LINK_LIBRARIES(service PRIVATE ${CONAN_LIBS_OATPP})
-
-
+TARGET_LINK_LIBRARIES(service PRIVATE oatpp)

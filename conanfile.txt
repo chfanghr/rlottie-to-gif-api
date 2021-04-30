@@ -1,5 +1,0 @@
-[requires]
-oatpp/1.2.5
-
-[generators]
-cmake
