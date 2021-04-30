@@ -46,8 +46,7 @@ oatpp::Object<RenderResult> doRender(const oatpp::Object<RenderRequest> &renderR
   }
 
   auto gifData = builder.done();
-
-  std::copy(gifData.begin(), gifData.end(), std::back_inserter(*resultObject->gifData));
+  resultObject->gifData->assign(gifData.begin(), gifData.end());
 
   if (resultObject->gifData->back() == 0) {
     resultObject->gifData->pop_back();

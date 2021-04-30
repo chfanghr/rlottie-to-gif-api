@@ -12,7 +12,7 @@ class RenderResult : public oatpp::DTO {
 
   DTO_FIELD(Object < RenderError >, error) = nullptr;
 
-  DTO_FIELD(Vector < UInt8 >, gifData, "gif_data");
+  DTO_FIELD(Vector < UInt8 >, gifData, "gif_data") = {};
 };
 
 #include OATPP_CODEGEN_END(DTO)
