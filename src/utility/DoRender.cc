@@ -21,6 +21,8 @@ oatpp::Object<RenderResult> doRender(const oatpp::Object<RenderRequest> &renderR
   double fps = 0;
   if (renderRequest->fps == 0.0) {
     fps = player->frameRate();
+  } else {
+    fps = renderRequest->fps;
   }
 
   const double averageDelay = 100 / fps;
