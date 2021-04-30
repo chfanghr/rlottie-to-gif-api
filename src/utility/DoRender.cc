@@ -6,11 +6,14 @@
 
 #include <gzip/utils.hpp>
 #include <gzip/decompress.hpp>
+#include <oatpp/encoding/Base64.hpp>
 
 oatpp::Object<RenderResult> doRender(const oatpp::Object<RenderRequest> &renderRequest) {
+  auto decodedData = oatpp::encoding::Base64::decode(renderRequest->rlottieData);
+
   std::string rlottieData = renderRequest->isTgs ?
-                            gzip::decompress(renderRequest->rlottieData->c_str(), renderRequest->rlottieData->getSize())
-                                                 : renderRequest->rlottieData->std_str();
+                            gzip::decompress(decodedData->c_str(), decodedData->getSize())
+                                                 : decodedData->std_str();
 
   static unsigned int cacheCounter = 0; // rlottie uses caches for internal optimizations
 

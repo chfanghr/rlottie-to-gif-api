@@ -2,6 +2,7 @@ package main
 
 import (
 	"bytes"
+	"encoding/base64"
 	"encoding/json"
 	"flag"
 	"fmt"
@@ -22,7 +23,7 @@ type RenderRequest struct {
 	Height      uint32  `json:"height"`
 	Fps         float64 `json:"fps"`
 	IsTgs       bool    `json:"is_tgs"`
-	RlottieData string  `json:"rlottie_data"`
+	RlottieData string  `json:"rlottie_data"` // base64 encoded data
 }
 
 type RenderError struct {
@@ -59,7 +60,7 @@ func main() {
 		Height:      uint32(*outputHeight),
 		IsTgs:       !json.Valid(rlottieData),
 		Fps:         *outputFps,
-		RlottieData: string(rlottieData),
+		RlottieData: base64.RawStdEncoding.EncodeToString(rlottieData),
 	}
 
 	jsonStr, err := json.Marshal(renderRequest)
